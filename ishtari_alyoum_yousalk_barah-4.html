@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>اشتري اليوم ويوصلك بارح</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#171717}
+header{background:linear-gradient(135deg,#5b21b6,#ec4899);color:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5}
+.logo{font-size:23px;font-weight:900}.cart{background:#fff2;padding:10px 15px;border-radius:12px}
+.hero{text-align:center;padding:70px 20px;background:linear-gradient(180deg,#ede9fe,#fff)}
+.hero h1{font-size:clamp(34px,7vw,68px);margin:0 0 15px}.hero p{font-size:20px;color:#555}
+.badge{display:inline-block;background:#111;color:white;padding:8px 14px;border-radius:99px}
+.grid{max-width:1100px;margin:35px auto;padding:0 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.card{background:white;border-radius:22px;padding:20px;box-shadow:0 8px 30px #0001;transition:.2s}.card:hover{transform:translateY(-4px)}
+.pic{height:150px;border-radius:16px;background:#eee;display:grid;place-items:center;font-size:65px}.photo{width:100%;height:180px;object-fit:cover;border-radius:16px}
+.price{font-size:24px;font-weight:900;margin:12px 0}.old{text-decoration:line-through;color:#999;font-size:14px}
+button{width:100%;border:0;padding:13px;border-radius:13px;background:#5b21b6;color:white;font-size:16px;font-weight:bold;cursor:pointer}
+button:hover{background:#43158c}
+.fake{max-width:850px;margin:35px auto;padding:25px;background:#111;color:white;border-radius:22px;text-align:center}
+.fake h2{color:#f472b6}.notice{font-size:24px;font-weight:900}
+footer{text-align:center;padding:35px;color:#777}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#111;color:white;padding:15px 20px;border-radius:15px;display:none;z-index:10}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">🛒 اشتري اليوم ويوصلك بارح</div>
+<div class="cart">🛍️ السلة: <span id="count">0</span></div>
+</header>
+
+<section class="hero">
+<span class="badge">🔥 أسرع متجر في الكون... تقريبًا</span>
+<h1>اشتري اليوم<br>ويوصلك بارح! 😂</h1>
+<p>أسعار خيالية، وعود أخطر، وخدمة توصيل مستحيلة.</p>
+</section>
+
+<section class="grid"><div class="card"><img class="photo" src="https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=900" alt="هاتف ذكي" loading="lazy"><h2>هاتف ذكي</h2><p>تقنية المستقبل التي ستجعلك تقول: لماذا اشتريته؟</p><div class="old">999 درهم</div><div class="price">0 درهم 😂</div><button onclick="buy('هاتف ذكي')">اطلب الآن</button></div><div class="card"><img class="photo" src="https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=900" alt="لابتوب" loading="lazy"><h2>لابتوب</h2><p>للدراسة والعمل والأهم فتح المتجر 17 مرة.</p><div class="old">999 درهم</div><div class="price">0 درهم 😂</div><button onclick="buy('لابتوب')">اطلب الآن</button></div><div class="card"><img class="photo" src="https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=900" alt="سماعات" loading="lazy"><h2>سماعات</h2><p>اسمع صوت التوصيل... الذي لن يأتي.</p><div class="old">999 درهم</div><div class="price">0 درهم 😂</div><button onclick="buy('سماعات')">اطلب الآن</button></div><div class="card"><img class="photo" src="https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=900" alt="ساعة ذكية" loading="lazy"><h2>ساعة ذكية</h2><p>تخبرك بالوقت، ولا تخبرك أين ذهبت أموالك.</p><div class="old">999 درهم</div><div class="price">0 درهم 😂</div><button onclick="buy('ساعة ذكية')">اطلب الآن</button></div><div class="card"><img class="photo" src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=900" alt="حذاء رياضي" loading="lazy"><h2>حذاء رياضي</h2><p>سرعته 100%، لكن الشحن أبطأ من السلحفاة.</p><div class="old">999 درهم</div><div class="price">0 درهم 😂</div><button onclick="buy('حذاء رياضي')">اطلب الآن</button></div><div class="card"><img class="photo" src="https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg?auto=compress&cs=tinysrgb&w=900" alt="كاميرا" loading="lazy"><h2>كاميرا</h2><p>صور بجودة عالية لمتجر بجودة مشكوك فيها.</p><div class="old">999 درهم</div><div class="price">0 درهم 😂</div><button onclick="buy('كاميرا')">اطلب الآن</button></div><div class="card"><img class="photo" src="https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?auto=compress&cs=tinysrgb&w=900" alt="نظارات" loading="lazy"><h2>نظارات</h2><p>تشوف بها السعر الحقيقي... وتندم.</p><div class="old">999 درهم</div><div class="price">0 درهم 😂</div><button onclick="buy('نظارات')">اطلب الآن</button></div><div class="card"><img class="photo" src="https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=900" alt="حقيبة ظهر" loading="lazy"><h2>حقيبة ظهر</h2><p>تحمل كتبك وأحلامك وفاتورة الشحن.</p><div class="old">999 درهم</div><div class="price">0 درهم 😂</div><button onclick="buy('حقيبة ظهر')">اطلب الآن</button></div><div class="card"><img class="photo" src="https://images.pexels.com/photos/1957477/pexels-photo-1957477.jpeg?auto=compress&cs=tinysrgb&w=900" alt="كرسي مكتب" loading="lazy"><h2>كرسي مكتب</h2><p>اجلس وانتظر طلبك الذي وصل أمس.</p><div class="old">999 درهم</div><div class="price">0 درهم 😂</div><button onclick="buy('كرسي مكتب')">اطلب الآن</button></div><div class="card"><img class="photo" src="https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&cs=tinysrgb&w=900" alt="طاولة" loading="lazy"><h2>طاولة</h2><p>طاولة ممتازة لوضع الكمبيوتر والوعود الكاذبة.</p><div class="old">999 درهم</div><div class="price">0 درهم 😂</div><button onclick="buy('طاولة')">اطلب الآن</button></div><div class="card"><img class="photo" src="https://images.pexels.com/photos/1268855/pexels-photo-1268855.jpeg?auto=compress&cs=tinysrgb&w=900" alt="كرة قدم" loading="lazy"><h2>كرة قدم</h2><p>تصل قبل الطلب؟ طبعًا... في الإعلان فقط.</p><div class="old">999 درهم</div><div class="price">0 درهم 😂</div><button onclick="buy('كرة قدم')">اطلب الآن</button></div><div class="card"><img class="photo" src="https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&w=900" alt="بيتزا" loading="lazy"><h2>بيتزا</h2><p>بيتزا أسطورية، تصل في أحلامك.</p><div class="old">999 درهم</div><div class="price">0 درهم 😂</div><button onclick="buy('بيتزا')">اطلب الآن</button></div></section>
+
+<section class="fake">
+<h2>🚨 لحظة... لحظة...</h2>
+<div class="notice">هل صدقت؟ غبي أنت؟ 😂</div>
+<p>لا يوجد شيء مجاني! هذا موقع كوميدي وهمي، وليس متجرًا حقيقيًا.</p>
+<p>وإذا قال لك الموقع إن الطلب سيصل أمس... فهذه علامة واضحة جدًا أنك دخلت متجرًا مجنونًا 🤣</p>
+</section>
+
+<footer>© 2026 اشتري اليوم ويوصلك بارح — متجر ساخر وغير حقيقي.<br>الصور من Pexels ومستخدمة وفق ترخيصها المجاني.</footer>
+<div id="toast"></div>
+
+<script>
+let count=0;
+function buy(name){
+ count++;
+ document.getElementById('count').textContent=count;
+ const t=document.getElementById('toast');
+ t.textContent=`😂 ${name}؟ هل صدقت؟ لا يوجد شيء مجاني!`;
+ t.style.display='block';
+ clearTimeout(window.tt);
+ window.tt=setTimeout(()=>t.style.display='none',2500);
+}
+</script>
+</body>
+</html>
